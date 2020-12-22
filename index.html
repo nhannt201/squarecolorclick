@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<title>Square Color Click on Web App</title>
+		<style>
+		body {background-color: coral;}
+
+			.container {
+				background-color: black;
+				width: 450px;
+				height: 620px;
+				margin: auto;
+			}
+			.panel {
+				height: 50px;
+				width: auto;
+				background-color: white;
+			}
+			.color-main {
+				float: left;
+				width: 100px;
+				height: 50px;
+				background-color: red;
+			}
+			.level-main {
+				float: left;
+				width: 50px;
+				height: 50px;
+				background-color: white;
+			}
+			.time-main {
+				float: left;
+				width: 300px;
+				height: 50px;
+				background-color: orange;
+			}
+			.progress {
+				width: 300px;
+				height: 15px;
+				background-color: green;
+			}
+			.label-correct {
+				width: 300px;
+				height: 35px;
+				background-color: gray;
+			}
+			.game-space {
+				overflow: auto;
+			}
+			.text-correct {
+				width: 260px;
+				height: 35px;
+				background-color: blue;
+				float: left;
+			}
+			.refresh {
+				width: 40px;
+				height: 35px;
+				background-color: gray;
+				float: left;
+			}
+			
+			.gamelabel {
+				color: black;
+				font-size: 40px;
+				margin-top: 50%;
+				text-align: center;
+				background-color: white;
+				height: 50px;
+			}
+			.level-num {
+				text-align: center;
+				margin-top: 15px;
+			}
+			
+			/**Effect of Blocks**/
+			.block {
+				background-color: white;
+				float: left;
+				padding: 2%;
+			}
+			.block-small {
+				height: 50px;
+				width: 80px;
+			}
+			.block-left {
+				background-color: white;
+				float: left;
+			}
+			.block-big {
+				height: 100px;
+				width: 112px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="container" id="container">
+		<div class="panel" id="panel">
+			<div class="color-main"></div>
+			<div class="level-main"><div class="level-num">0</div></div>
+			<div class="time-main">
+				<div class="progress"></div>
+				<div class="label-correct">
+					<div class="text-correct"></div>
+					<div class="refresh"></div>
+				</div>
+			</div>
+		</div>
+		<div class="game-space" id="game-space">
+			<div class="gamelabel" id="gamelabel">Start Game</div>
+			<!--<div id='block' class='block-left block-big' onClick='random_pos()'></div>
+			<div id='block' class='block-left block-big' onClick='random_pos()'></div>
+			<div id='block' class='block-left block-big' onClick='random_pos()'></div>
+			<div id='block' class='block-left block-big' onClick='random_pos()'></div>	-->
+		</div>
+	</div>
+	<script type="text/javascript">
+		var randomColor;
+		//Handle event
+		var btn_start = document.getElementById("gamelabel");
+		btn_start.addEventListener("click", start_game)
+		
+		function start_game() {
+			btn_start.style.display = "none";			
+			color_random(10);
+		}
+		
+		function color_random(total) {
+			var i;
+			var new_block = document.getElementById("game-space");
+			for (i=0; i < total; i++) {
+				randomColor =  Math.floor(Math.random()*16777215).toString(16);
+				new_block.innerHTML += "<div id='block' class='block block-small' onClick='random_pos()' style='background-color:#"+randomColor+";'></div>";
+			}
+			
+		}
+		function random_pos() {
+			var mix_pos = document.querySelectorAll("div.block-small");
+			var topX = Math.floor((Math.random() * 400) + 1) + "px";
+			var leftY = Math.floor((Math.random() * 370) + 1) + "px";
+
+			 $('#block').css('margin-left', leftY);
+			$('#block').css('margin-top', topX);
+		}
+	</script>
+	  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+	</body>
+</html>
+
+<!--References
+https://css-tricks.com/snippets/javascript/random-hex-color/
+https://github.com/nhannt201/randomColor
+
+-->
