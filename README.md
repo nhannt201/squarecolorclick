@@ -9,5 +9,5 @@ This is a redeveloped version based on the available Android version: https://pl
 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[Apache License 2.0](https://github.com/nhannt201/squarecolorclick/blob/master/LICENSE)
 =======
