@@ -91,17 +91,26 @@
 				height: 100px;
 				width: 112px;
 			}
+			/**text-correct**/
+			.text-correct {
+				text-align: center;
+				color: white;
+				font-size: 25px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 		</style>
 	</head>
 	<body>
 	<div class="container" id="container">
 		<div class="panel" id="panel">
-			<div class="color-main"></div>
-			<div class="level-main"><div class="level-num">0</div></div>
+			<div class="color-main" id="color-main"></div>
+			<div class="level-main"><div class="level-num" id="level-num">0</div></div>
 			<div class="time-main">
 				<div class="progress"></div>
 				<div class="label-correct">
-					<div class="text-correct"></div>
+					<div class="text-correct" id="text-correct"></div>
 					<div class="refresh"></div>
 				</div>
 			</div>
@@ -116,13 +125,26 @@
 	</div>
 	<script type="text/javascript">
 		var randomColor;
+		var score = 0;
+		var dung = 0; //5/5 to level up!
+		var ans = "";
 		//Handle event
 		var btn_start = document.getElementById("gamelabel");
 		btn_start.addEventListener("click", start_game)
 		
 		function start_game() {
-			btn_start.style.display = "none";			
-			color_random(10);
+			btn_start.style.display = "none";
+			default_right();		
+			color_random(2);
+		}
+		
+		function default_right() {
+			document.getElementById("text-correct").innerHTML = "0/5 - Đúng";
+			document.getElementById("level-num").innerHTML = 0;
+		}
+		
+		function set_right() {
+			document.getElementById("text-correct").innerHTML = dung + "/5 - Đúng";
 		}
 		
 		function color_random(total) {
@@ -130,9 +152,19 @@
 			var new_block = document.getElementById("game-space");
 			for (i=0; i < total; i++) {
 				randomColor =  Math.floor(Math.random()*16777215).toString(16);
-				new_block.innerHTML += "<div id='block' class='block block-small' onClick='random_pos()' style='background-color:#"+randomColor+";'></div>";
+				ans = randomColor;
+				document.getElementById("color-main").style.backgroundColor  = "#" + randomColor;
+				new_block.innerHTML += "<div id='block' class='block block-small' onClick='click_pos("+total+", \"" +ans+"\")' style='background-color:#"+randomColor+";'></div>";
 			}
 			
+		}
+		function click_pos(total, dapanclick) {
+		check_ans(dapanclick);
+		//Clear game old
+		document.getElementById("game-space").innerHTML = "";
+		//Doi mau tiep sau do random
+			color_random(total);
+			random_pos();
 		}
 		function random_pos() {
 			var mix_pos = document.querySelectorAll("div.block-small");
@@ -141,6 +173,30 @@
 
 			 $('#block').css('margin-left', leftY);
 			$('#block').css('margin-top', topX);
+		}
+		
+		function check_ans(dapanclick) {
+			//Check dapan
+			if (dapanclick == ans) {
+				if (dung >= 5) {
+					score += 1;
+					dung = 0;
+					//Tang cap ra value
+					document.getElementById("level-num").innerHTML = score;
+				} else {
+					dung += 1;
+					set_right();
+				}
+			} else {
+				if (dung <=0) { //Neu diem nho nhat
+					//Msg gameover
+					alert("Game Over!");
+					location.reload();
+				} else { //Con diem dung
+					dung -= 1;
+					set_right();
+				}
+			}
 		}
 	</script>
 	  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
