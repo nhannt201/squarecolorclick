@@ -1,0 +1,139 @@
+body {background-color: coral;}
+
+			.container {
+				background-color: black;
+				width: 450px;
+				height: 620px;
+				margin: auto;
+			}
+			.panel {
+				height: 50px;
+				width: auto;
+				background-color: white;
+			}
+			.color-main {
+				float: left;
+				width: 100px;
+				height: 50px;
+				background-color: red;
+			}
+			.level-main {
+				float: left;
+				width: 50px;
+				height: 50px;
+				background-color: white;
+			}
+			.time-main {
+				float: left;
+				width: 300px;
+				height: 50px;
+				background-color: #ddd;
+			}
+			.progress {
+				width: 300px;
+				height: 15px;
+				background-color: green;
+			}
+			.label-correct {
+				width: 300px;
+				height: 35px;
+				background-color: gray;
+			}
+			.game-space {
+				overflow: auto;
+			}
+			.text-correct {
+				width: 260px;
+				height: 35px;
+				background-color: blue;
+				float: left;
+			}
+			.refresh {
+				width: 40px;
+				height: 35px;
+				background-color: gray;
+				float: left;
+				text-align: center;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.gamelabel {
+				color: black;
+				font-size: 40px;
+				margin-top: 50%;
+				text-align: center;
+				background-color: white;
+				height: 50px;
+			}
+			.level-num {
+				text-align: center;
+				margin-top: 15px;
+			}
+			
+			/**Effect of Blocks**/
+			.block {
+				background-color: white;
+				float: left;
+				padding: 2%;
+			}
+			.block-small {
+				height: 50px;
+				width: 80px;
+			}
+			.block-left {
+				background-color: white;
+				float: left;
+			}
+			.block-big {
+				height: 100px;
+				width: 112px;
+			}
+			/**text-correct**/
+			.text-correct {
+				text-align: center;
+				color: white;
+				font-size: 25px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.img-rf {		
+				width: 25px;
+				height: 25px;
+			}
+			.footer {
+				text-align: center;
+				color: white;
+				font-size: 15px;
+				padding: 10px;
+				border-style: solid;
+			}
+			a:hover {
+				color: red;
+			}
+			a:visited {
+			  color: orange;
+			}
+			/* unvisited link */
+			a:link {
+			  color: yellow;
+			}
+			header {
+				width: 450px;
+				margin: auto;
+				background-color: black;
+			}
+			footer {
+				width: 450px;
+				margin: auto;
+				background-color: black;
+			}
+			.intro {
+				text-align: center;
+				color: white;
+				font-size: 35px;
+				padding: 5px;
+				border-style: solid;
+			}
