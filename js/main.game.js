@@ -19,13 +19,13 @@ var randomColor;
 		}
 		
 		function default_right() {
-			document.getElementById("text-correct").innerHTML = "0/5 - Đúng";
+			document.getElementById("text-correct").innerHTML = "0/5 - Correct";
 			document.getElementById("level-num").innerHTML = 0;
 			document.getElementById("progress").style.width = "300px";
 		}
 		
 		function set_right() {
-			document.getElementById("text-correct").innerHTML = dung + "/5 - Đúng";
+			document.getElementById("text-correct").innerHTML = dung + "/5 - Correct";
 		}
 		
 		function reset_time() {
